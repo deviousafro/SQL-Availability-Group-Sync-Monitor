@@ -71,3 +71,42 @@ Automate with Task Scheduler or DevOps pipeline:
 Run on a schedule (e.g., every 15 minutes).
 
 Use exit codes for CI/CD or monitoring pipelines.
+
+📧 Email Alerts
+
+Failure Email
+Subject: CRITICAL: SQL AG Databases Not Synchronized
+Body: List of affected databases with instance name and sync state.
+
+Success Email
+Subject: SUCCESS: All SQL AG Databases Are Synchronized
+Body: Timestamp confirming successful synchronization.
+
+🚦 Exit Codes
+Code	Meaning	Usage
+0	All databases are synchronized	Healthy state – no action required
+1	One or more databases out of sync	Critical issue – review failure email
+🔧 Customization
+
+Replace Get-SITAGDatabaseStatus with your own function or SQL query.
+
+Adjust email configuration for SMTP authentication if required.
+
+Expand notifications to include logging to file, Slack/Teams webhook alerts, or custom monitoring dashboards.
+
+📜 Example Output
+
+Console (Failure)
+
+Critical: Found database(s) not synchronizing:
+SQL01 - SalesDB: Not in AG Group
+SQL02 - HRDB: Not Synchronized
+
+
+Console (Success)
+
+Success: All databases in Availability Groups are synchronized successfully as of 2025-06-06 14:30:12.
+
+📄 License
+
+MIT License – feel free to use and modify for your environment.
