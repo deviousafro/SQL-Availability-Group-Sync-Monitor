@@ -110,3 +110,20 @@ Success: All databases in Availability Groups are synchronized successfully as o
 📄 License
 
 MIT License – feel free to use and modify for your environment.
+
+flowchart TD
+    A[Start Script] --> B[Collect DB Sync Status]
+    B --> C{Any DB Not in AG?}
+    C -- Yes --> D[Mark as Critical Issue]
+    C -- No --> E{Any DB Not Synchronized?}
+    E -- Yes --> D
+    E -- No --> F[All DBs Synchronized]
+
+    D --> G[Output Critical to Console]
+    G --> H[Send Failure Email]
+    H --> I[Exit 1]
+
+    F --> J[Output Success to Console]
+    J --> K[Send Success Email]
+    K --> L[Exit 0]
+
