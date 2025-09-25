@@ -111,6 +111,13 @@ Success: All databases in Availability Groups are synchronized successfully as o
 
 MIT License – feel free to use and modify for your environment.
 
+---
+
+## 🔄 Process Flow
+
+The following diagram shows how the script evaluates database synchronization status and handles alerts:
+
+```mermaid
 flowchart TD
     A[Start Script] --> B[Collect DB Sync Status]
     B --> C{Any DB Not in AG?}
@@ -126,4 +133,6 @@ flowchart TD
     F --> J[Output Success to Console]
     J --> K[Send Success Email]
     K --> L[Exit 0]
+
+
 
